@@ -100,17 +100,6 @@ def get_assignments():
 		if created_date_final > bimester_init_date:
 			print('\n')
 			print('=' * 100)
-			print(class_assignment)
-			message += f"""\n\n📝 Tarefa: {class_assignment['assignmentInfo']['displayName']}
-						\n📚 Disciplina: {class_assignment["classInfo"][0]["name"]}
-						\n⏳ Data de entrega: {final_date_parsed[2]}/{final_date_parsed[1]}/{final_date_parsed[0]}
-						às {final_hours_parsed[0]}:{final_hours_parsed[1]}:{final_hours_parsed[2]}"""
-
-			if class_assignment['assignmentInfo']['allowLateSubmissions'] == true:
-				message += "\n⏰ Aceita atrasos: ✅SIM✅"
-			else:
-				message += "\n⏰ Aceita atrasos: ❌NÃO❌"
-
 			due_date_time = class_assignment['assignmentInfo']['dueDateTime']
 			[date_parsed, hours_parsed] = parse_teams_date_time(due_date_time)
 
@@ -124,6 +113,17 @@ def get_assignments():
 			remaining_date = date_final - date_init
 
 			remaining_date_parsed = str(remaining_date).split(',')
+
+			message += f"""\n\n📝 Tarefa: {class_assignment['assignmentInfo']['displayName']}
+						\n📚 Disciplina: {class_assignment["classInfo"][0]["name"]}
+						\n⏳ Data de entrega: {final_date_parsed[2]}/{final_date_parsed[1]}/{final_date_parsed[0]}
+						às {final_hours_parsed[0]}:{final_hours_parsed[1]}:{final_hours_parsed[2]}"""
+
+			if class_assignment['assignmentInfo']['allowLateSubmissions'] == true:
+				message += "\n⏰ Aceita atrasos: ✅SIM✅"
+			else:
+				message += "\n⏰ Aceita atrasos: ❌NÃO❌"
+
 
 			if len(remaining_date_parsed) > 1:
 				remaining_days = int(remaining_date_parsed[0].strip().split(' ')[0])
