@@ -54,7 +54,6 @@ class TeamScrap:
 			for assignment in assignmentsJson['value']:
 				currentClassInfo = self.get_classes([classId])
 
-				if not assignment['isCompleted']:
-					classesAssignments.append({ 'assignmentInfo': assignment, 'classInfo': currentClassInfo })
+				classesAssignments.append({ 'assignmentInfo': assignment, 'classInfo': currentClassInfo })
 
 		return classesAssignments
