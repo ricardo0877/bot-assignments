@@ -3,6 +3,7 @@ from colorama import Fore, Style
 from datetime import datetime, timedelta
 from crypt import Crypt
 import ascii_art
+import json
 
 def clear_token():
 	encrypted_token_file = open('token.txt', 'wb')
@@ -134,10 +135,8 @@ for class_assignment in classes_assignments:
 		print('\n')
 		print('=' * 100)
 
-		f = open("tarefas.txt", "a")
-		f.write(class_assignment)
-		f.write('\n')
-		f.close()
+		with open('tarefas.json', 'a') as fp:
+			json.dump(class_assignment, fp)
 
 	else:
 		pass
