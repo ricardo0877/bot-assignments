@@ -92,7 +92,6 @@ def get_assignments():
 	print('=' * 100)
 	message = ""
 	for class_assignment in classes_assignments:
-
 		created_date_time = class_assignment['assignmentInfo']['createdDateTime']
 		[created_date_parsed, created_hours_parsed] = parse_teams_date_time(created_date_time)
 		created_date_final = datetime(year=int(created_date_parsed[0]), month=int(created_date_parsed[1]), day=int(created_date_parsed[2]))
@@ -101,7 +100,7 @@ def get_assignments():
 		if created_date_final > bimester_init_date:
 			print('\n')
 			print('=' * 100)
-
+			print(class_assignment)
 			message += f"""\n\n📝 Tarefa: {class_assignment['assignmentInfo']['displayName']}
 						\n📚 Disciplina: {class_assignment["classInfo"][0]["name"]}
 						\n⏳ Data de entrega: {final_date_parsed[2]}/{final_date_parsed[1]}/{final_date_parsed[0]}
@@ -141,5 +140,5 @@ def get_assignments():
 			pass
 
 		print('\n') 
-
+		print(message)
 		return message
