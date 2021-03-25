@@ -102,10 +102,10 @@ def get_assignments():
 			print('\n')
 			print('=' * 100)
 
-			message += f"\n\n📝 Tarefa: {class_assignment['assignmentInfo']['displayName']}"
-						"\n📚 Disciplina: {class_assignment["classInfo"][0]["name"]}"
-						"\n⏳ Data de entrega: {final_date_parsed[2]}/{final_date_parsed[1]}/{final_date_parsed[0]}"
-						"às {final_hours_parsed[0]}:{final_hours_parsed[1]}:{final_hours_parsed[2]}"
+			message += f"""\n\n📝 Tarefa: {class_assignment['assignmentInfo']['displayName']}
+						\n📚 Disciplina: {class_assignment["classInfo"][0]["name"]}
+						\n⏳ Data de entrega: {final_date_parsed[2]}/{final_date_parsed[1]}/{final_date_parsed[0]}
+						às {final_hours_parsed[0]}:{final_hours_parsed[1]}:{final_hours_parsed[2]}"""
 
 			if class_assignment['assignmentInfo']['allowLateSubmissions'] == true:
 				message += "\n⏰ Aceita atrasos: ✅SIM✅"
