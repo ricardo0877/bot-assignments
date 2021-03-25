@@ -89,7 +89,7 @@ overdue_assignments = 0
 print('=' * 100)
 for class_assignment in classes_assignments:
 
-	reated_date_time = class_assignment['assignmentInfo']['createdDateTime']
+	created_date_time = class_assignment['assignmentInfo']['createdDateTime']
 	[created_date_parsed, created_hours_parsed] = parse_teams_date_time(created_date_time)
 	created_date_final = datetime(year=int(created_date_parsed[0]), month=int(created_date_parsed[1]), day=int(created_date_parsed[2]))
 	bimester_init_date = datetime(year=int(2021), month=int(2), day=int(1))
