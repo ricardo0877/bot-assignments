@@ -134,9 +134,12 @@ for class_assignment in classes_assignments:
 		print('\n')
 		print('=' * 100)
 
+		f = open("tarefas.txt", "a")
+		f.write(class_assignment)
+		f.write('\n')
+		f.close()
+
 	else:
 		pass
 
 	print('\n')
-	print(f'{Fore.GREEN}Total de assignments:{Style.RESET_ALL} {len(classes_assignments)}')
-	print(f'{Fore.RED}Total de assignments em atraso:{Style.RESET_ALL} {overdue_assignments}')
