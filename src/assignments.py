@@ -137,8 +137,5 @@ def get_assignments():
 				message += "\n⚙️ Status: 🏃CORRE QUE DÁ TEMPO🏃"
 
 		else:
-			pass
-
-		print('\n') 
-		print(message)
-		return message
+			pass 
+	return message
