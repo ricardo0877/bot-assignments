@@ -1,4 +1,4 @@
-import assignments_filter
+import assignments
 import telebot
 
 bot = telebot.TeleBot("1545886121:AAEFlARQil0-PBAjxPzR5iVWSHUhOVlDcgo", parse_mode=None)
@@ -9,6 +9,6 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['tarefas'])
 def send_welcome(message):
-	bot.reply_to(message, assignments_filter.get_assignments())
+	bot.reply_to(message, assignments.get_assignments())
 
 bot.polling()
