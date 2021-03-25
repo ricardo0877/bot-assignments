@@ -102,6 +102,7 @@ overdue_assignments = 0
 
 print('=' * 100)
 for class_assignment in classes_assignments:
+	print(class_assignment)
 	due_date_time = class_assignment['assignmentInfo']['dueDateTime']
 	[date_parsed, hours_parsed] = parse_teams_date_time(due_date_time)
 
