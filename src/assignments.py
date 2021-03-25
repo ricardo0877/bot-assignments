@@ -119,7 +119,7 @@ def get_assignments():
 						\n⏳ Data de entrega: {final_date_parsed[2]}/{final_date_parsed[1]}/{final_date_parsed[0]}
 						às {final_hours_parsed[0]}:{final_hours_parsed[1]}:{final_hours_parsed[2]}"""
 
-			if class_assignment['assignmentInfo']['allowLateSubmissions'] == true:
+			if class_assignment['assignmentInfo']['allowLateSubmissions'] == 'true':
 				message += "\n⏰ Aceita atrasos: ✅SIM✅"
 			else:
 				message += "\n⏰ Aceita atrasos: ❌NÃO❌"
