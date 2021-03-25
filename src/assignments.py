@@ -136,6 +136,9 @@ def get_assignments():
 			else:
 				message += "\n⚙️ Status: 🏃CORRE QUE DÁ TEMPO🏃"
 
+			message += "\n-"
 		else:
-			pass 
-	return message
+			pass
+
+		message_split = message.split("-")
+	return message_split

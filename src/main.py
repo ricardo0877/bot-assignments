@@ -10,7 +10,7 @@ updater = Updater(token='1545886121:AAEFlARQil0-PBAjxPzR5iVWSHUhOVlDcgo', use_co
 dispatcher = updater.dispatcher
 
 def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=assignments.get_assignments())
+    context.bot.send_message(chat_id=update.effective_chat.id, text=(for x in assignments.get_assignments()))
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
