@@ -88,42 +88,55 @@ overdue_assignments = 0
 
 print('=' * 100)
 for class_assignment in classes_assignments:
-	print(class_assignment)
-	due_date_time = class_assignment['assignmentInfo']['dueDateTime']
-	[date_parsed, hours_parsed] = parse_teams_date_time(due_date_time)
 
-	date_init = datetime.now()
-	date_final = datetime(year=int(date_parsed[0]), month=int(date_parsed[1]), day=int(date_parsed[2]), hour=int(hours_parsed[0]), minute=int(hours_parsed[1]), second=int(hours_parsed[2]))
+	reated_date_time = class_assignment['assignmentInfo']['createdDateTime']
+	[created_date_parsed, created_hours_parsed] = parse_teams_date_time(created_date_time)
+	created_date_final = datetime(year=int(created_date_parsed[0]), month=int(created_date_parsed[1]), day=int(created_date_parsed[2]))
+	bimester_init_date = datetime(year=int(2021), month=int(2), day=int(1))
 
-	date_final -= timedelta(hours=3)
+	if created_date_final > bimester_init_date:
 
-	[final_date_parsed, final_hours_parsed] = parse_date_time(date_final)
+		print(class_assignment)
+		due_date_time = class_assignment['assignmentInfo']['dueDateTime']
+		c
 
-	remaining_date = date_final - date_init
+		[date_parsed, hours_parsed] = parse_teams_date_time(due_date_time)
 
-	remaining_date_parsed = str(remaining_date).split(',')
+		date_init = datetime.now()
+		date_final = datetime(year=int(date_parsed[0]), month=int(date_parsed[1]), day=int(date_parsed[2]), hour=int(hours_parsed[0]), minute=int(hours_parsed[1]), second=int(hours_parsed[2]))
 
-	if len(remaining_date_parsed) > 1:
-		remaining_days = int(remaining_date_parsed[0].strip().split(' ')[0])
-		remaining_hours = remaining_date_parsed[1].strip().split(':')
+		date_final -= timedelta(hours=3)
+
+		[final_date_parsed, final_hours_parsed] = parse_date_time(date_final)
+
+		remaining_date = date_final - date_init
+
+		remaining_date_parsed = str(remaining_date).split(',')
+
+		if len(remaining_date_parsed) > 1:
+			remaining_days = int(remaining_date_parsed[0].strip().split(' ')[0])
+			remaining_hours = remaining_date_parsed[1].strip().split(':')
+		else:
+			remaining_hours = remaining_date_parsed[0].strip().split(':')
+
+		print('\n')
+		print(f'{Fore.GREEN}Matéria:{Style.RESET_ALL} {class_assignment["classInfo"][0]["name"]}')
+		print(f"{Fore.GREEN}Descrição:{Style.RESET_ALL} {class_assignment['assignmentInfo']['displayName']}")
+		print(f'{Fore.GREEN}Data de entrega:{Style.RESET_ALL} {final_date_parsed[2]}/{final_date_parsed[1]}/{final_date_parsed[0]} às {final_hours_parsed[0]}:{final_hours_parsed[1]}:{final_hours_parsed[2]}')
+		
+		if len(remaining_date_parsed) == 1:
+			print(f'{Fore.GREEN}Tempo restante:{Style.RESET_ALL} {remaining_hours[0]} horas {remaining_hours[1]} minutos e {int(float(remaining_hours[2]))} segundos')
+		elif int(remaining_days) < 0:
+			print(f'{Fore.RED}Assignment em atraso!{Style.RESET_ALL}')
+			overdue_assignments += 1
+		else:
+			print(f'{Fore.GREEN}Tempo restante:{Style.RESET_ALL} {remaining_days} dias, {remaining_hours[0]} horas, {remaining_hours[1]} minutos e {int(float(remaining_hours[2]))} segundos')
+		print('\n')
+		print('=' * 100)
+
 	else:
-		remaining_hours = remaining_date_parsed[0].strip().split(':')
+		pass
 
 	print('\n')
-	print(f'{Fore.GREEN}Matéria:{Style.RESET_ALL} {class_assignment["classInfo"][0]["name"]}')
-	print(f"{Fore.GREEN}Descrição:{Style.RESET_ALL} {class_assignment['assignmentInfo']['displayName']}")
-	print(f'{Fore.GREEN}Data de entrega:{Style.RESET_ALL} {final_date_parsed[2]}/{final_date_parsed[1]}/{final_date_parsed[0]} às {final_hours_parsed[0]}:{final_hours_parsed[1]}:{final_hours_parsed[2]}')
-	
-	if len(remaining_date_parsed) == 1:
-		print(f'{Fore.GREEN}Tempo restante:{Style.RESET_ALL} {remaining_hours[0]} horas {remaining_hours[1]} minutos e {int(float(remaining_hours[2]))} segundos')
-	elif int(remaining_days) < 0:
-		print(f'{Fore.RED}Assignment em atraso!{Style.RESET_ALL}')
-		overdue_assignments += 1
-	else:
-		print(f'{Fore.GREEN}Tempo restante:{Style.RESET_ALL} {remaining_days} dias, {remaining_hours[0]} horas, {remaining_hours[1]} minutos e {int(float(remaining_hours[2]))} segundos')
-	print('\n')
-	print('=' * 100)
-
-print('\n')
-print(f'{Fore.GREEN}Total de assignments:{Style.RESET_ALL} {len(classes_assignments)}')
-print(f'{Fore.RED}Total de assignments em atraso:{Style.RESET_ALL} {overdue_assignments}')
+	print(f'{Fore.GREEN}Total de assignments:{Style.RESET_ALL} {len(classes_assignments)}')
+	print(f'{Fore.RED}Total de assignments em atraso:{Style.RESET_ALL} {overdue_assignments}')
