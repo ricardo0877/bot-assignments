@@ -1,14 +1,17 @@
 import assignments
-import telebot
+import logging
+from telegram.ext import Updater
+from telegram.ext import CommandHandler
 
-bot = telebot.TeleBot("1545886121:AAEFlARQil0-PBAjxPzR5iVWSHUhOVlDcgo", parse_mode=None)
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                     level=logging.INFO)
 
-@bot.message_handler(commands=['start', 'help'])
-def send_welcome(message):
-	bot.reply_to(message, "Howdy, how are you doing?")
+updater = Updater(token='1545886121:AAEFlARQil0-PBAjxPzR5iVWSHUhOVlDcgo', use_context=True)
+dispatcher = updater.dispatcher
 
-@bot.message_handler(commands=['tarefas'])
-def send_welcome(message):
-	bot.reply_to(message, assignments.get_assignments())
+def start(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text=assignments.get_assignments())
 
-bot.polling()
+start_handler = CommandHandler('start', start)
+dispatcher.add_handler(start_handler)
+updater.start_polling()
