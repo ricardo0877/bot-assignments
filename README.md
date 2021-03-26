@@ -1,7 +1,8 @@
 # Bot-Assignments
 
-<p> This bot was only possibly easy made using the https://github.com/luisbrandino/team-scrap repository. 
-    Bot created for sending all assignments on a telegram chat </p>
+<p> ** This bot was only possibly easy made using the https://github.com/luisbrandino/team-scrap repository. **
+
+This bot was created for sending all assignments on a telegram chat </p>
 
 ## Setup
 
