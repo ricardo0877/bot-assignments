@@ -11,7 +11,7 @@ dispatcher = updater.dispatcher
 
 def start(update, context):
 	message = assignments.get_assignments()
-    context.bot.send_message(chat_id=update.effective_chat.id, text=message[0])
+	context.bot.send_message(chat_id=update.effective_chat.id, text=message[0])
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
