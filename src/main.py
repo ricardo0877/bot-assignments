@@ -4,7 +4,7 @@ from telegram.ext import Updater
 from telegram.ext import CommandHandler
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                     level=logging. )
+                     level=logging.INFO)
 
 updater = Updater(token='1545886121:AAEFlARQil0-PBAjxPzR5iVWSHUhOVlDcgo', use_context=True)
 dispatcher = updater.dispatcher
