@@ -11,7 +11,13 @@ dispatcher = updater.dispatcher
 
 def start(update, context):
 	message = assignments.get_assignments()
-	context.bot.send_message(chat_id=update.effective_chat.id, text=message[0])
+	if len(info) > 4096: 
+		for x in range(0, len(info), 4096): 
+			bot.send_message(message.chat.id, info[x:x+4096]) 
+	else: 
+		bot.send_message(message.chat.id, info)
+
+	context.bot.send_message(chat_id=update.effective_chat.id, text=message)
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)

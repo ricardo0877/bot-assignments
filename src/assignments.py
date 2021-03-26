@@ -99,7 +99,6 @@ def get_assignments():
 
 		if created_date_final > bimester_init_date:
 			print('\n')
-			print('=' * 100)
 			due_date_time = class_assignment['assignmentInfo']['dueDateTime']
 			[date_parsed, hours_parsed] = parse_teams_date_time(due_date_time)
 
@@ -140,5 +139,4 @@ def get_assignments():
 		else:
 			pass
 
-		message_split = message.split("-")
-	return message_split
+	return message
