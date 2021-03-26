@@ -1,6 +1,6 @@
 # Bot-Assignments
 
-<p> ** This bot was only possibly easy made using the https://github.com/luisbrandino/team-scrap repository. **
+<p> **This bot was only possibly easy made using the https://github.com/luisbrandino/team-scrap repository.**
 
 This bot was created for sending all assignments on a telegram chat </p>
 
@@ -45,11 +45,11 @@ To obtain this Token you need to find one file inside google devtools, here is a
 
 - Log in to your Microsoft Teams account and go to the teams page <br>
 
-- After that, press ** F12 ** and go to the ** Network ** tab on devtools <br>
+- After that, press **F12** and go to the **Network** tab on devtools <br>
 
-- Then go to the ** Tasks ** tab and wait for an item called ** classes ** or ** work?... ** to appear on devtools <br>
+- Then go to the **Tasks** tab and wait for an item called **classes** or **work?...** to appear on devtools <br>
 
-- Click on that item, go to the ** Headers ** tab and scroll down until you find ** Request headers **, then view the header ** authorization ** and copy all letters and numbers after the word ** Carrier * * or ** Bearer * *<br>
+- Click on that item, go to the **Headers** tab and scroll down until you find **Request headers**, then view the header **authorization** and copy all letters and numbers after the word **Carrier** * or **Bearer**<br>
 
 After following these steps, you have your Token! <br>
 To start using the program, just paste this code when prompted
