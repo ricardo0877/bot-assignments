@@ -1,33 +1,30 @@
-# Team Scrap
+# Bot-Assignments
 
-<p> Programa criado para facilitar o uso dos assignments no Microsoft Teams </p>
+<p> This bot was only possibly easy made using the https://github.com/luisbrandino/team-scrap repository. 
+    Bot created for sending all assignments on a telegram chat </p>
 
-![team_scrap](images/teamscrap.png)
+## Setup
 
-## Começando
+Before executing this bot you need to install the following things:
 
-Essas instruções farão com que você consiga rodar o projeto na sua máquina local
+### Python
 
-### Pré-requisitos
+This bot was made with Python so you need to download it<br>
+:snake: Download Python3 [here](https://www.python.org/downloads/)
 
-É necessário que você possua Python3 instalado em sua máquina<br>
-:snake: Download do Python3 [aqui](https://www.python.org/downloads/)
-
-Dentro da pasta do projeto, no cmd ou terminal, digite esse comando para instalar as dependências: 
+Inside the project folder, on cmd or terminal, this this code to install the dependencies: 
 
 #### Windows
 ~~~python
 python -m pip install -r requirements.txt
 ~~~
 
-#### Linux e Mac
+#### Linux and Mac
 ~~~python3
 python3 -m pip install -r requirements.txt
 ~~~
 
-### Executando
-
-Após finalizar a instalação das dependências, execute o script principal:
+## Running
 
 #### Windows
 ```
@@ -39,39 +36,21 @@ src\main.py
 python3 src/main.py
 ```
 
-### Como utilizar
+### How to use
 
-Quando o script for iniciado pela primeira vez, será necessário informar o seu Token que dá acesso à API do `onenote.com`
+When the script is started for the first time, it will be necessary to inform your Token that gives access to the API `onenote.com`
 
-Para conseguir pegar esse Token, digite `?` quando o programa pedir para informar esse código, para receber um mini tutorial de como pegá-lo
+To obtain this Token you need to find one file inside google devtools, here is a tutorial with images:
 
-Caso prefira, aqui vai um tutorial com imagens:
+- Log in to your Microsoft Teams account and go to the teams page <br>
 
-- Logue na sua conta do Microsoft Teams e vá para a página de equipes<br>
-[Passo 1](images/tutorial1.png)
+- After that, press ** F12 ** and go to the ** Network ** tab on devtools <br>
 
-- Após isso, aperte **F12** e vá para a aba **Network** na devtools<br>
-[Passo 2](images/tutorial2.png)
+- Then go to the ** Tasks ** tab and wait for an item called ** classes ** or ** work?... ** to appear on devtools <br>
 
-- Depois, vá para a aba **Tarefas** e espere aparecer um item chamado **classes** na devtools<br>
-[Passo 3](images/tutorial3.png)
+- Click on that item, go to the ** Headers ** tab and scroll down until you find ** Request headers **, then view the header ** authorization ** and copy all letters and numbers after the word ** Carrier * * or ** Bearer * *<br>
 
-- Clique nesse item, vá para a aba **Headers** e desça até encontrar o **Request Headers**, após isso visualize o header **authorization** e copie todas as letras e números após a palavra **Bearer**<br>
-(Lembre-se que é apenas para copiar o código do header authorization)<br>
-[Passo 4](images/tutorial4.png)
+After following these steps, you have your Token! <br>
+To start using the program, just paste this code when prompted
 
-Após seguir esses passos, você possui o seu Token!<br>
-Para começar utilizar o programa, apenas cole esse código quando for pedido
-
-OBS.: Esse Token pode expirar depois de algum tempo e será necessário refazer esses passos, enquanto o Token for válido ele ficará salvo na sua máquina encriptado para uso
-
-## Construído com
-
-- [Requests](https://requests.readthedocs.io/) - Feito para fazer as requisições nos endpoints necessários
-- [Coloroma](https://pypi.org/project/colorama/) - Cores e perfumação no terminal
-- [datetime](https://docs.python.org/3/library/datetime.html) - Utilizado para formatar a data e calcular dias
-- [cryptography](https://cryptography.io/) - Utilizado para encriptar e decriptar o Token
-
-## Autores
-
-- Projeto criado por [Luis Brandino](https://github.com/luisbrandino)
+NOTE: This Token may expire after some time and you will need to redo these steps, as long as the Token is valid, it will be saved on your machine encrypted for use
