@@ -9,15 +9,15 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(token='1545886121:AAEFlARQil0-PBAjxPzR5iVWSHUhOVlDcgo', use_context=True)
 dispatcher = updater.dispatcher
 
-def start(update, context):
+def start(updater, context):
 	message = assignments.get_assignments()
-	if len(info) > 4096: 
-		for x in range(0, len(info), 4096): 
-			bot.send_message(message.chat.id, info[x:x+4096]) 
+	if len(message) > 4096: 
+		for x in range(0, len(message), 4096): 
+			bot.send_message(updater.effective_chat.id, message[x:x+4096]) 
 	else: 
-		bot.send_message(message.chat.id, info)
+		bot.send_message(updater.effective_chat.id, message)
 
-	context.bot.send_message(chat_id=update.effective_chat.id, text=message)
+	context.bot.send_message(chat_id=updater.effective_chat.id, text=message)
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
