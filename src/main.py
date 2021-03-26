@@ -9,7 +9,7 @@ def send_welcome(message):
 	chat_id = -585783047
 
 	if len(assignments_msg) > 4096:
-	    splitted_msg = telebot.util.split_string(assignments_msg, 3000)
+		splitted_msg = telebot.util.split_string(assignments_msg, 3000)
 		for text in splitted_msg:
 			bot.send_message(chat_id, text)
 	else:
