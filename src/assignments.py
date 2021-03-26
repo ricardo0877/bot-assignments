@@ -98,7 +98,6 @@ def get_assignments():
 		bimester_init_date = datetime(year=int(2021), month=int(2), day=int(1))
 
 		if created_date_final > bimester_init_date:
-			print('\n')
 			due_date_time = class_assignment['assignmentInfo']['dueDateTime']
 			[date_parsed, hours_parsed] = parse_teams_date_time(due_date_time)
 
@@ -135,7 +134,7 @@ def get_assignments():
 			else:
 				message += "\n⚙️ Status: 🏃CORRE QUE DÁ TEMPO🏃"
 
-			message += "\n-"
+			message += "\n"+"="*10
 		else:
 			pass
 
